@@ -12,7 +12,7 @@ struct GroupGrubsApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-            Text("hi")
+           
         }
     }
 }
