@@ -11,6 +11,7 @@ struct ContentView: View {
     @State var numPeople=0
     var body: some View {
         VStack {
+            Image("AppIcon")
             Spacer()
             Text("Welcome")
                 .font(.title)
