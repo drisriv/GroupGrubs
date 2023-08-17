@@ -25,7 +25,6 @@ struct ContentView: View {
                     .foregroundColor(Color(hue: 0.067, saturation: 0.802, brightness: 0.981))
                     
                 Spacer()
-                HStack{
                     Text("Choose the Number of People in your Group")
                     Menu {
                         Button(action: {
@@ -39,7 +38,7 @@ struct ContentView: View {
                             Text("Three")
                         })
                         
-                        Button(action: {
+                       /* Button(action: {
                             numPeople = "Four"
                         }, label: {
                             Text("Four")
@@ -50,24 +49,29 @@ struct ContentView: View {
                             numPeople = "Five"
                         }, label: {
                             Text("Five")
-                        })
+                        })*/
                         
                     } label: {
                         Label(
                 title: {Text("\(numPeople)")}, icon: {Image(systemName: "plus")}
                         )
                     }
-                }
                 Spacer()
                 
             }
             if numPeople == "Two" {
                 
-                NavigationLink(destination:twoPeople (foodChoiceOne: "", foodChoiceTwo: "", numPeople : self.$numPeople)) {
+                NavigationLink(destination:twoPeople(personOneOne: "", personOneTwo: "", personOneThree: "",personTwoOne: "", personTwoTwo: "", personTwoThree: "")) {
                     Text("Next")
                 }
                 
-            }
+            } /*else{
+                
+                NavigationLink(destination:threePeople (foodChoiceOne: "", foodChoiceTwo: "", numPeople : self.$numPeople)) {
+                    Text("Next")
+                }
+                
+            }*/
             
     
         }
