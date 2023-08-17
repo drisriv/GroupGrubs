@@ -5,40 +5,77 @@
 //  Created by Drishti Srivastava on 8/15/23.
 //
 
+//hi
+
 import SwiftUI
 
 struct ContentView: View {
-    @State var numPeople=0
+    @State var numPeople = ""
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-            Image("Logo")
+        NavigationStack {
             
-            Spacer()
-            Text("Welcome")
-                .font(.title)
-            Spacer()
-            HStack{
-                Text("Choose the Number of People in your Group")
-                Picker(selection: $numPeople, label: Text("# of People")) {
-                    Text("2").tag(1)
-                    Text("3").tag(2)
-                    Text("4").tag(3)
-                    Text("5").tag(4)
-                    Text("6").tag(5)
-                    Text("7").tag(6)
-                    Text("8").tag(7)
+            VStack {
+
+                Image("Logo")
+                
+                Spacer()
+                Text("GroupGrubs")
+                    .font(.title)
+                    .fontWeight(.heavy)
+                    .foregroundColor(Color(hue: 0.067, saturation: 0.802, brightness: 0.981))
+                    
+                Spacer()
+                HStack{
+                    Text("Choose the Number of People in your Group")
+                    Menu {
+                        Button(action: {
+                            numPeople = "Two"
+                        }, label: {
+                            Text("Two")
+                        })
+                        Button(action: {
+                            numPeople = "Three"
+                        }, label: {
+                            Text("Three")
+                        })
+                        
+                        Button(action: {
+                            numPeople = "Four"
+                        }, label: {
+                            Text("Four")
+                        })
+                        
+                        
+                        Button(action: {
+                            numPeople = "Five"
+                        }, label: {
+                            Text("Five")
+                        })
+                        
+                    } label: {
+                        Label(
+                title: {Text("\(numPeople)")}, icon: {Image(systemName: "plus")}
+                        )
+                    }
                 }
+                Spacer()
+                
             }
-            Spacer()
+            if numPeople == "Two" {
+                
+                NavigationLink(destination:twoPeople (foodChoiceOne: "", foodChoiceTwo: "", numPeople : self.$numPeople)) {
+                    Text("Next")
+                }
+                
+            }
             
+    
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(numPeople:"")
     }
 }
