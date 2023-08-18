@@ -12,68 +12,48 @@ import SwiftUI
 struct ContentView: View {
     @State var numPeople = ""
     var body: some View {
-        NavigationStack {
+        
             
-            VStack {
-
-                Image("Logo")
+            NavigationStack {
+                ZStack{
+                    Color(hue: 0.067, saturation: 0.802, brightness: 0.981).ignoresSafeArea()
                 
-                Spacer()
-                Text("GroupGrubs")
-                    .font(.title)
-                    .fontWeight(.heavy)
-                    .foregroundColor(Color(hue: 0.067, saturation: 0.802, brightness: 0.981))
+                VStack {
                     
-                Spacer()
-                    Text("Choose the Number of People in your Group")
+                    Image("LogoMain")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                    
+ 
+                    VStack{
+                        Text("Choose the Number of People in your Group")
+                            .fontWeight(.bold)
+                            .foregroundColor(Color(red: 0.846, green: 0.069, blue: 0.347))
+                            .multilineTextAlignment(.center)
+                    }.padding().background(Rectangle().foregroundColor(.white)).cornerRadius(15)
+                    
                     Menu {
                         Button(action: {
                             numPeople = "Two"
                         }, label: {
                             Text("Two")
                         })
-                        Button(action: {
-                            numPeople = "Three"
-                        }, label: {
-                            Text("Three")
-                        })
-                        
-                       /* Button(action: {
-                            numPeople = "Four"
-                        }, label: {
-                            Text("Four")
-                        })
-                        
-                        
-                        Button(action: {
-                            numPeople = "Five"
-                        }, label: {
-                            Text("Five")
-                        })*/
                         
                     } label: {
                         Label(
-                title: {Text("\(numPeople)")}, icon: {Image(systemName: "plus")}
+                            title: {Text("\(numPeople)")}, icon: {Image(systemName: "plus")}
                         )
                     }
-                Spacer()
+                    
+                }
+
+                NavigationLink(destination:twoPeople(personOneOne: "", personOneTwo: "", personOneThree: "")) {
+                    Text("Next").padding()
+                }.background(Rectangle().foregroundColor(.white)).cornerRadius(15)
+                .padding(.top, 600.0)
+                    
                 
             }
-            if numPeople == "Two" {
-                
-                NavigationLink(destination:twoPeople(personOneOne: "", personOneTwo: "", personOneThree: "",personTwoOne: "", personTwoTwo: "", personTwoThree: "")) {
-                    Text("Next")
-                }
-                
-            } /*else{
-                
-                NavigationLink(destination:threePeople (foodChoiceOne: "", foodChoiceTwo: "", numPeople : self.$numPeople)) {
-                    Text("Next")
-                }
-                
-            }*/
-            
-    
         }
     }
 }
